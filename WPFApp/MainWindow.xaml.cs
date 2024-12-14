@@ -24,11 +24,24 @@ namespace WPFApp
                 }
             );
 
+            Task T3A = new Task(ShowMessage);
+
             Task T3 = new Task(
                 () => ShowMessage()
             );
 
+            Task T4 = new Task(() => MessageBox.Show("Ejecutando la tarea 4"));
+
+            Task T5 = new Task(() =>
+                {
+                    DateTime CurrentDate = DateTime.Today;
+                    DateTime StartDate = CurrentDate.AddDays(30);
+                    MessageBox.Show($"Tarea 5. Fecha Calculada: {StartDate}");
+                }
+            );
         }
+
+        
 
         void ShowMessage()
         {
