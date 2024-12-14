@@ -17,7 +17,11 @@ namespace WPFApp
             Task T;
             Action Code = new Action(ShowMessage);
             T = new Task(Code);
-
+            Task T2 = new Task(delegate
+            {
+                MessageBox.Show("Ejecutando una tarea en método Anónimo");
+            }
+            );
         }
 
         void ShowMessage()
