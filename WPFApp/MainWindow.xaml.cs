@@ -10,13 +10,18 @@ namespace WPFApp
         public MainWindow()
         {
             InitializeComponent();
+            CreateTask();
         }
 
         void AddMessage(string message)
         {
-            Messages.Content +=
-                $"Mensaje: {message}, " + 
-                $"Hilo Actual: {Thread.CurrentThread.ManagedThreadId}\n";
+            this.Dispatcher.Invoke(() =>
+            {
+                Messages.Content +=
+                    $"Mensaje: {message}, " +
+                    $"Hilo Actual: {Thread.CurrentThread.ManagedThreadId}\n";
+
+            });
         }
 
         void CreateTask()
@@ -51,6 +56,7 @@ namespace WPFApp
 
             Task T7 = new Task(() => AddMessage("Ejecutando la tarea."));
             T7.Start();
+            AddMessage("En el hilo principal");
         }
 
         
