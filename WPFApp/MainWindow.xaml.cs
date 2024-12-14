@@ -39,6 +39,8 @@ namespace WPFApp
                     MessageBox.Show($"Tarea 5. Fecha Calculada: {StartDate}");
                 }
             );
+
+            Task T6 = new Task((message) => MessageBox.Show(message.ToString()), "Expresión Lambda con parámetros.");
         }
 
         
